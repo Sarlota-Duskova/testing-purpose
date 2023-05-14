@@ -14,7 +14,7 @@ def send_email(email, password):
     msg['Subject'] = subject
 
     smtp_server = 'smtp.gmail.com'
-    smtp_port = 587
+    smtp_port = 465
     smtp_username = 'scarlette.scotty@gmail.com'
     smtp_password = 'password3.'
 
