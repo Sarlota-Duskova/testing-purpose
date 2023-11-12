@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Upload</title>
+    <title>Template Page</title>
 </head>
 <body>
-    <h1>File Upload</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="file">Choose a file:</label>
-        <input type="file" name="file" id="file" accept=".txt">
-        <br>
-        <input type="submit" value="Upload">
-    </form>
+    <h1>Template Page</h1>
+    
+    <!-- Display the template content -->
+    <pre>{{ .readFile }}</pre>
+
+    <!-- Other HTML content as needed -->
 </body>
 </html>
