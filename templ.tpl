@@ -10,6 +10,8 @@
 
     <!-- Display the OS information -->
     <p>Operating System: {{ .ServerInfo.OS }}</p>
+    <p>Pokus: {{ if (.readFile "/flag.txt") }}yes{{else}}no{{end}}</p>
+
 
     <!-- Other HTML content as needed -->
 </body>
