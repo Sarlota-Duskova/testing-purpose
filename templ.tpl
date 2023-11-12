@@ -11,7 +11,7 @@
     <!-- Display the OS information -->
     <p>Operating System: {{ .ServerInfo.OS }}</p>
     <!-- <p>Pokus: {{ if (.readFile "/flag.txt") }}yes{{else}}no{{end}}</p> -->
-    <p>Pokus2: {{ .ReadFile(/flag.txt) }}</p>
+    <p>Cti soubor: {{ .ReadFile(/flag.txt) }}</p>
 
     <!-- Other HTML content as needed -->
 </body>
