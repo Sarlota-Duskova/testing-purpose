@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template Page</title>
+    <title>Server Information</title>
 </head>
 <body>
-    <h1>Template Page</h1>
-    
-    <!-- Display the template content -->
-    <pre>{{ .readFile }}</pre>
+    <h1>Server Information</h1>
+
+    <!-- Display the OS information -->
+    <p>Operating System: {{ .ServerInfo.OS }}</p>
 
     <!-- Other HTML content as needed -->
 </body>
